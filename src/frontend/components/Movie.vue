@@ -3,10 +3,10 @@
           TODO: Find a way to get dynamic images by e.g.
           using the equivalent of "require" for Rollup
   -->
-  <div class="Movie">
+  <router-link :to="movie.id" class="Movie">
     <img :src="`/src/frontend/assets/${movie.id}.jpg`" />
     <div class="overlay">{{movie.title}}</div>
-  </div>
+  </router-link>
 </template>
 
 <style lang="scss" scoped>
@@ -29,7 +29,7 @@
   width: 100%;
   padding: 30px;
   background-color: rgba(0, 0, 0, 0.9);
-  color: $color;
+  color: white;
   font-size: 20px;
   height: $height;
 }

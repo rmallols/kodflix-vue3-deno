@@ -1,4 +1,4 @@
-export default function getMovies(): Movie[] {
+export function getMovies(): Movie[] {
     return [
         { id: '3headed', title: '3 Headed Shark Attack' },
         { id: 'crocosaurus', title: 'Megashark vs Crocosaurus' },
@@ -7,6 +7,10 @@ export default function getMovies(): Movie[] {
         { id: 'megalodon', title: 'Shark Attack 3: Megalodon' },
         { id: 'sharktopus', title: 'Sharktopus' }
     ];
+}
+
+export function getMovie(movieId: string = ''): Movie | undefined {
+    return getMovies().find(({ id }) => id === movieId);
 }
 
 interface Movie {

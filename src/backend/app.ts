@@ -1,5 +1,5 @@
 import { Application, Router } from 'https://deno.land/x/oak/mod.ts';
-import getMovies from './movies.ts';
+import { getMovies, getMovie } from './movies.ts';
 
 const app = new Application();
 const router = new Router();
@@ -7,7 +7,9 @@ const router = new Router();
 router
   .get('/api/movies', (ctx) => {
     ctx.response.body = getMovies();
-    // Implement your code
+  })
+  .get('/api/movies/:movieId', (ctx) => {
+    ctx.response.body = getMovie(ctx.params.movieId);
   });
 
 app.use(router.routes());
